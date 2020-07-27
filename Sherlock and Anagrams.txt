@@ -1,0 +1,24 @@
+//function that was to be completed 
+static int sherlockAndAnagrams(String s) {
+        int count=0;char temp[], temp1[];
+        
+          ArrayList<String> al= new ArrayList<>();
+       
+        for(int i=1;i<s.length();i++)
+            for(int j=0;j<=s.length()-i;j++)
+                al.add(s.substring(j,i+j));
+       
+        for(int l=0;l<al.size()-1;l++)
+            for(int k=l+1;k<al.size();k++)
+                if( (al.get(l)).length()==(al.get(k)).length() )
+                {      
+                    temp=(al.get(l)).toCharArray();
+                    temp1=(al.get(k)).toCharArray();
+                    Arrays.sort(temp);
+                    Arrays.sort(temp1);
+                    if(Arrays.equals(temp, temp1))
+                    {count++;
+                    }
+                }
+               
+        return count;
